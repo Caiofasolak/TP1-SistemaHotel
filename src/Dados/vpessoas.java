@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * Classe pessoas que se extende a cliente e funcionario, tem os objetos necessarios
+ * para a utilizacao durante o programa. Os metodos getters e setters sao definidos aqui.
+ * @author caiof
  */
+
 public class vpessoas {
     private int id_pessoa;
     private String nome;

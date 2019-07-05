@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * Classe cliente que herda caracteristicas de pessoas
+ * Aqui sao criados os metodos getters e setters para clientes
+ * @author caiof
  */
+
 public class vclientes extends vpessoas {
     private String codigo_cliente;
 

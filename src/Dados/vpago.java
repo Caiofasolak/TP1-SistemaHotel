@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Dados;
+/**
+ * Classe do pagamento, define os objetos necessários para os pagamentos realizados
+ * no programa. Os metodos getters e setters tambem sao definidos aqui.
+ * @author caiof
+ */
 
 import java.sql.Date;
 
-/**
- *
- * @author Hugo
- */
 public class vpago {
     private int idpagamento;
     private int idreserva;

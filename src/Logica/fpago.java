@@ -15,9 +15,14 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
- *
- * @author Hugo
+ * Classe que informa os pagamentos para serem gravados no banco de dados
+ * As conexoes necessarias da classe pagamentos com o banco de dados sao realizadas
+ * aqui. Os metodos para criar, editar, salvar, e retornar os dados de pagamentos
+ * do banco de dados sao definidos aqui
+ * Sao utilizadas consultas sql para realizar a comunicacao com o banco de dados.
+ * @author caiof
  */
+
 public class fpago {
         private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
@@ -27,11 +32,13 @@ public class fpago {
     
     public DefaultTableModel mostrar(String buscar){
         
+    //Tabela modelo de pagamentos para ser salva no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID PGTO", "ID reservas", "Tipo Comprovante", "Num Comprovante", "Taxa", "Total Pagamento", "Data Emissão", "Data Pagamento"};
     String[] registro = new String[8];
     totalregistros = 0;
     
+    //Consulta padrao sql para os pagamentos realizados
     modelo = new DefaultTableModel(null, titulos);
     sSQL = "select * from tb_pagamentos where id_reserva=" + buscar + " order by id_pagamento";
     

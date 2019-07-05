@@ -4,6 +4,11 @@
  * and open the template in the editor.
  */
 package Logica;
+/**
+ * Aqui fazemos as conexoes necessarias da classe clientes com o bando de dados
+ * hospedado no phpMyAdmin.
+ * @author caiof
+ */
 
 import Dados.vclientes;
 import Dados.vprodutos;
@@ -13,10 +18,13 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
- *
- * @author Hugo
+ * Abaixo sao defindos os metodos necessarios para criar, salvar, editar e retornar
+ * os clientes do banco de dados.
+ * Sao utilizadas queries em sql para retorar os valores do banco de dados
+ * Foi utilizado Try catch para localizar quaquer resultado nao esperado evitando
+ * a quebra do programa.
+ * @author caiof
  */
 public class fclientes {
     private conexao mysql=new conexao();
@@ -27,14 +35,15 @@ public class fclientes {
     
     
     public DefaultTableModel mostrar(String buscar){
-        
+    //Modelo default para salvar na tabela de clientes    
     DefaultTableModel modelo;
     String[] titulos = {"ID", "Nome", "Nome Pai", "Nome Mãe", "Documento", "Numero DOC", "Endereço", "Telefone", "Email", "Código"};
     String[] registro = new String[10];
     totalregistros = 0;
     
     modelo = new DefaultTableModel(null, titulos);
-   sSQL = "select p.id_pessoa,p.nome_pessoa,p.nome_pai,p.nome_mae,p.tipo_documento,p.num_documento,"
+    //Define uma pessquisa sql para os campos defindos acima
+    sSQL = "select p.id_pessoa,p.nome_pessoa,p.nome_pai,p.nome_mae,p.tipo_documento,p.num_documento,"
                 + "p.endereco,p.telefone,p.email,c.codigo_cliente from tb_pessoas p inner join tb_clientes c "
                 + "on p.id_pessoa=c.id_pessoa where num_documento like '%"
                 + buscar + "%' order by id_pessoa desc";

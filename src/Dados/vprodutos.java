@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * Os produtos tem seus objetos definidos aqui.
+ * Os metdos getters e setters tambem sao definidos aqui. * 
+ * @author caiof
  */
+
 public class vprodutos {
     private int idproduto;
     private String nome;

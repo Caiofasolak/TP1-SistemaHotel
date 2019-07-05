@@ -4,10 +4,10 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * Classe consumo que define os objetos necessários para utilização no sistema
+ * Tambem sao definidos os metodos getters e setters aqui.
+ * @author caiof
  */
 public class vconsumo {
     private int idconsumo;

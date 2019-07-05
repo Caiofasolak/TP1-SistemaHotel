@@ -15,18 +15,24 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
- *
- * @author Hugo
+ * Classe consumo, se liga ao banco de dados hospedado em phpMyAdmin
+ * Aqui e realizada a conexao necessaria com o bando de dados
+ * Pesquisas sql sao definidas aqui para serem passadas ao banco de dados
+ * Os metodos para criar,salvar,editar,e retornar do banco de dados tambem sao
+ * definidos aqui
+ * @author caiof
  */
+
 public class fconsumo {
-        private conexao mysql=new conexao();
+    private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
     public Double totalconsumo;
     
     public DefaultTableModel mostrar(String buscar){
-        
+    
+    //Modelo padrao de tabela que sera salvo no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID consumo", "ID reserva", "ID produto", "Produto", "Quantidade", "Preco Venda", "Estado"};
     String[] registro = new String[7];
@@ -34,6 +40,7 @@ public class fconsumo {
     totalconsumo = 0.0;
     
     modelo = new DefaultTableModel(null, titulos);
+    //Define uma pessquisa sql para os campos defindos acima
     sSQL="select c.id_consumo,c.id_reserva,c.id_produto,p.nome,c.quantidade,c.preco_venda "
                + ",c.estado from tb_consumo c inner join tb_produtos p on c.id_produto=p.id_produto"
                + " where c.id_reserva ="+ buscar + " order by c.id_consumo desc";

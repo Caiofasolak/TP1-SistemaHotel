@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 package Dados;
+/**
+ * A classe reservas tem seus objetos definidos aqui.
+ * Os metodos getters e setters tambem sao definidos aqui.
+ * @author caiof
+ */
 
 import java.sql.Date;
 
-/**
- *
- * @author Hugo
- */
 public class vreservas {
     private int idreserva;
     private int idquartos;

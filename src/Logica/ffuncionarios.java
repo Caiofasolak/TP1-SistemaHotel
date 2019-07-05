@@ -14,11 +14,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
- *
- * @author Hugo
+ * Classe de conexao de funcionarios com o bando de dados em phpMyAdmin
+ * As pesquisas sql necessarias sao realizadas aqui e passadas ao banco de dados
+ * Os metodos para criar,salvar,editar, e retornar os dados de funcionarios sao
+ * definidos aqui.
+ * @author caiof
  */
+
 public class ffuncionarios {
     private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
@@ -28,14 +31,16 @@ public class ffuncionarios {
     
     
     public DefaultTableModel mostrar(String buscar){
-        
+      
+    //Modelo padrao de tabela que sera salvo no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID", "Nome", "Nome Pai", "Nome Mãe", "Documento", "Numero DOC", "Endereço", "Telefone", "Email", "Salário", "Acesso", "Login", "Senha", "Estado"};
     String[] registro = new String[14];
     totalregistros = 0;
     
     modelo = new DefaultTableModel(null, titulos);
-   sSQL = "select p.id_pessoa,p.nome_pessoa,p.nome_pai,p.nome_mae,p.tipo_documento,p.num_documento,"
+    //Define uma pessquisa sql para os campos defindos acima
+    sSQL = "select p.id_pessoa,p.nome_pessoa,p.nome_pai,p.nome_mae,p.tipo_documento,p.num_documento,"
                 + "p.endereco,p.telefone,p.email,f.salario,f.acesso,f.login,f.password,f.estado from tb_pessoas p inner join tb_funcionarios f "
                 + "on p.id_pessoa=f.id_pessoa where num_documento like '%"
                 + buscar + "%' order by id_pessoa desc";

@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * Classe funcionários, herda algumas caracteristicas de pessoas
+ * Aqui sao definidos os metodos getters e setters para os funcionarios
+ * @author caiof
  */
+
 public class vfuncionarios extends vpessoas {
     Double salario;
     String acesso;

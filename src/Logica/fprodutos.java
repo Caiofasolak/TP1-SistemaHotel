@@ -14,11 +14,15 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
- *
- * @author Hugo
+ * Conexoes da classe de produtos com o banco de dados sao realizadas aqui
+ * As consultas sql necessarias sao realizadas abaixo 
+ * Os metodos para criar, salvar, editar, e retornar os dados dos produtos sao 
+ * definidos abaixo.
+ * @author caiof
  */
+
 public class fprodutos {
-        private conexao mysql=new conexao();
+    private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
@@ -26,11 +30,13 @@ public class fprodutos {
     
     public DefaultTableModel mostrar(String buscar){
         
+    //Tabela padrao para os produtos serem salvos no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID", "Produto", "Descrição", "Unidade Medida", "Preço Venda"};
     String[] registro = new String[5];
     totalregistros = 0;
     
+    //Consulta em sql para retornar os dados do banco de dados
     modelo = new DefaultTableModel(null, titulos);
     sSQL = "select * from tb_produtos where nome like '%" + buscar + "%' order by id_produto";
     

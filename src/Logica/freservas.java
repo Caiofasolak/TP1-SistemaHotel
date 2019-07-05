@@ -15,23 +15,28 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 /**
- *
- * @author Hugo
+ * As conexoes das reservas com o banco de dados sao realizadas aqui
+ * Consultas sql sao utilizadas para passar e retornar dados do banco de dados
+ * Os metodos para criar, editar, salvar, e retornar os dados estao definidos abaixo
+ * @author caiof
  */
+
 public class freservas {
-        private conexao mysql=new conexao();
+    private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
     private String sSQL="";
     public Integer totalregistros;
     
     
     public DefaultTableModel mostrar(String buscar){
-        
+       
+    //Tabela padrao para salvar os dados no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID Reserva", "ID quartos", "Número", "ID Clientes", "Nome Cliente", "ID Funcionários", "Funcionário", "Tipo Reserva", "Data Reserva", "Data Entrada", "Data Saída", "Valor quarto", "Estado"};
     String[] registro = new String[13];
     totalregistros = 0;
     
+    //Consulta sql necessaria para mostrar as informacoes de reservas no BD
     modelo = new DefaultTableModel(null, titulos);
     sSQL="select r.id_reserva,r.id_quartos,q.numero,r.id_cliente,"+
                "(select nome_pessoa from tb_pessoas where id_pessoa=r.id_cliente)as clienten,"+

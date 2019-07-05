@@ -4,11 +4,12 @@
  * and open the template in the editor.
  */
 package Dados;
-
 /**
- *
- * @author Hugo
+ * A classe quartos tem seus objetos necessarios para utlizacao no programa definidos 
+ * aqui. Os metodos getters e setters tambem sao defindos aqui.
+ * @author caiof
  */
+
 public class vquartos {
     private int idquartos;
     private String numero;

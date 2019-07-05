@@ -12,11 +12,14 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-
 /**
- *
- * @author Hugo
+ * As conexoes necessarias da classe quatos com o banco de dados sao realizadas aqui
+ * Consultas em sql sao utilizadas para realizar a comunicacao com o banco de dados
+ * Os metodos para criar, editar, salvar, e retornar os dados dos quartos estao
+ * definididos abaixo.
+ * @author caiof
  */
+
 public class fquartos {
     private conexao mysql=new conexao();
     private Connection cn=mysql.conectar();
@@ -26,11 +29,13 @@ public class fquartos {
     
     public DefaultTableModel mostrar(String buscar){
         
+    //Tabela padrao para os quartos serem armazenados no banco de dados
     DefaultTableModel modelo;
     String[] titulos = {"ID", "Número", "Andar", "Descrição", "Caracteristicas", "Preço", "Estado", "Tipo de Quarto"};
     String[] registro = new String[8];
     totalregistros = 0;
     
+    //Consulta em sql para retornar do bando de dados os quartos
     modelo = new DefaultTableModel(null, titulos);
     sSQL = "select * from tb_quartos where andar like '%" + buscar + "%' order by id_quartos";
     
