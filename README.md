@@ -22,6 +22,7 @@
     -Importar da pasta do projeto clonado o banco de dados bancoreservacompleto.sql</br>
     -Abrir a IDE NetBeans</br>
     -Clicar na aba projetos em seguida em abrir projeto, e abrir o projeto clonado</br>
+    -Caso ocorrer um erro ao abrir o projeto importar o arquivo mysql-connector-java.jar para o projeto na correção de erros do NetBeans</br>
     -Para Cadastrar o primeiro Admin, ir em Apresentacao buscar por frm_menu.java, clicar com o botao esquerdo e em seguida executar
     ao entrar na tela do sistema escolher a opção "Configurações" em seguida Cadastrar Funcionario, e realizar o cadastro do ADMIN</br>
     -Ao receber a confirmação do sistema, sair do programa </br>
